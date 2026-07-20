@@ -66,11 +66,17 @@ export function ChaosSlider() {
         </div>
 
         <div className="reveal relative mt-12 aspect-[4/5] select-none overflow-hidden rounded-3xl card-glow sm:aspect-[16/9]">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${value}%)` }}>
             <ChaosPanel />
+            <div className="pointer-events-none absolute right-4 top-4 whitespace-nowrap rounded-full bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+              До: Excel, WhatsApp, бумага
+            </div>
           </div>
           <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>
             <ViviCleanPanel />
+            <div className="pointer-events-none absolute left-4 top-4 whitespace-nowrap rounded-full bg-accent/90 px-3 py-1 text-xs font-medium text-accent-foreground">
+              После: VIVI
+            </div>
           </div>
           <div
             className="pointer-events-none absolute inset-y-0 w-0.5 bg-accent"
@@ -89,12 +95,6 @@ export function ChaosSlider() {
             aria-label="Сравнить хаос и VIVI"
             className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
           />
-          <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-accent/90 px-3 py-1 text-xs font-medium text-accent-foreground">
-            После: VIVI
-          </div>
-          <div className="pointer-events-none absolute right-4 top-4 rounded-full bg-background/70 backdrop-blur px-3 py-1 text-xs font-medium text-muted-foreground">
-            До: Excel, WhatsApp, бумага
-          </div>
         </div>
       </div>
     </section>
